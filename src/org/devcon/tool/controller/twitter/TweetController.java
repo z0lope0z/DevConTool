@@ -21,5 +21,5 @@ public class TweetController extends Controller {
         requestScope("tweetList", tweetList);
         return forward("index.jsp");
     }
-    
+        
 }

@@ -9,6 +9,7 @@ import org.slim3.datastore.Datastore;
 import org.slim3.datastore.Filter;
 import org.slim3.util.BeanUtil;
 
+import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.Transaction;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 
@@ -24,6 +25,12 @@ public class TwitterService {
         Datastore.put(tweet);
         tx.commit();
         return tweet;
+    }
+    
+    public void remove(Key key){
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.delete(key);
+        tx.commit();
     }
     
     public List<Tweet> getTweetList(){

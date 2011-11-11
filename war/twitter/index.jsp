@@ -17,7 +17,7 @@
 <input type="text" name="version"><br />
 <input type="submit" value="tweet"/>
 </form>
-
+<c:out value="${deleteKeys}" />
 <form method="post" action="searchTweet">
 	Content:
 	<input type="text" name="content">
@@ -25,25 +25,27 @@
 	<input type="text" name="version">
 	<input type="submit" value="search"/>
 </form>
-
-<table border="0" cellspacing="2" cellpadding="2" id="teams">
-	<tr>
-	<th><font face="Arial, Helvetica, sans-serif">Edit</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Delete</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Key</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Content</font></th>
-	<th><font face="Arial, Helvetica, sans-serif">Version</font></th>
-	</tr>
-	<c:forEach var="e" items="${tweetList}">
+<form method="post" action="searchTweet">
+	<table border="0" cellspacing="2" cellpadding="2" id="teams">
 		<tr>
-		<td><input type="radio" value="${f:h(e.key)}" name="edit[]"/></td>
-		<td><input type="checkbox" value="${f:h(e.key)}" name="delete[]"/></td>
-		<td>${f:h(e.key)}</td>
-		<td>${f:h(e.content)}</td>
-		<td>${f:h(e.version)}</td>
+		<th><font face="Arial, Helvetica, sans-serif">Edit</font></th>
+		<th><font face="Arial, Helvetica, sans-serif">Delete</font></th>
+		<th><font face="Arial, Helvetica, sans-serif">Key</font></th>
+		<th><font face="Arial, Helvetica, sans-serif">Content</font></th>
+		<th><font face="Arial, Helvetica, sans-serif">Version</font></th>
 		</tr>
-	</c:forEach>
-</table>
-
+		<c:forEach var="e" items="${tweetList}">
+			<tr>
+			<td><input type="radio" value="${f:h(e.key)}" name="edit[]"/></td>
+			<td><input type="checkbox" value="${f:h(e.key)}" name="delete[]"/></td>
+			<td>${f:h(e.key)}</td>
+			<td>${f:h(e.content)}</td>
+			<td>${f:h(e.version)}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<input type="submit" name="modify" value="edit"/>
+	<input type="submit" name="modify" value="delete"/>
+</form>
 </body>
 </html>
