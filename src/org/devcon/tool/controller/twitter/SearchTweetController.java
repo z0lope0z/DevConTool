@@ -46,6 +46,8 @@ public class SearchTweetController extends Controller {
                 if (deleteKeys.length > 0){
                     deleteTweets(deleteKeys);
                 }
+            } else if (modify.equals("edit")){
+                return redirect("addTweet?key=" + request.getParameter("edit[]"));
             }
         }
         requestScope("tweetList", searchFilter(contentQuery, versionQuery));

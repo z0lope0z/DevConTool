@@ -27,6 +27,10 @@ public class TwitterService {
         return tweet;
     }
     
+    public Tweet get(Key key){
+        return Datastore.get(Tweet.class, key);
+    }
+    
     public void remove(Key key){
         Transaction tx = Datastore.beginTransaction();
         Datastore.delete(key);

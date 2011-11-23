@@ -2,55 +2,55 @@ package org.devcon.tool.meta;
 
 //@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2011-11-21 15:19:28")
 /** */
-public final class TweetMeta extends org.slim3.datastore.ModelMeta<org.devcon.tool.model.Tweet> {
+public final class MemberMeta extends org.slim3.datastore.ModelMeta<org.devcon.tool.model.Member> {
 
     /** */
-    public final org.slim3.datastore.StringAttributeMeta<org.devcon.tool.model.Tweet> content = new org.slim3.datastore.StringAttributeMeta<org.devcon.tool.model.Tweet>(this, "content", "content");
+    public final org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Member, com.google.appengine.api.datastore.Email> email = new org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Member, com.google.appengine.api.datastore.Email>(this, "email", "email", com.google.appengine.api.datastore.Email.class);
 
     /** */
-    public final org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Tweet, java.util.Date> createdDate = new org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Tweet, java.util.Date>(this, "createdDate", "createdDate", java.util.Date.class);
+    public final org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Member, com.google.appengine.api.datastore.Key> key = new org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Member, com.google.appengine.api.datastore.Key>(this, "__key__", "key", com.google.appengine.api.datastore.Key.class);
 
     /** */
-    public final org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Tweet, com.google.appengine.api.datastore.Key> key = new org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Tweet, com.google.appengine.api.datastore.Key>(this, "__key__", "key", com.google.appengine.api.datastore.Key.class);
+    public final org.slim3.datastore.StringAttributeMeta<org.devcon.tool.model.Member> name = new org.slim3.datastore.StringAttributeMeta<org.devcon.tool.model.Member>(this, "name", "name");
 
     /** */
-    public final org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Tweet, java.lang.Long> version = new org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Tweet, java.lang.Long>(this, "version", "version", java.lang.Long.class);
+    public final org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Member, java.lang.Long> version = new org.slim3.datastore.CoreAttributeMeta<org.devcon.tool.model.Member, java.lang.Long>(this, "version", "version", java.lang.Long.class);
 
-    private static final TweetMeta slim3_singleton = new TweetMeta();
+    private static final MemberMeta slim3_singleton = new MemberMeta();
 
     /**
      * @return the singleton
      */
-    public static TweetMeta get() {
+    public static MemberMeta get() {
        return slim3_singleton;
     }
 
     /** */
-    public TweetMeta() {
-        super("Tweet", org.devcon.tool.model.Tweet.class);
+    public MemberMeta() {
+        super("Member", org.devcon.tool.model.Member.class);
     }
 
     @Override
-    public org.devcon.tool.model.Tweet entityToModel(com.google.appengine.api.datastore.Entity entity) {
-        org.devcon.tool.model.Tweet model = new org.devcon.tool.model.Tweet();
-        model.setContent((java.lang.String) entity.getProperty("content"));
-        model.setCreatedDate((java.util.Date) entity.getProperty("createdDate"));
+    public org.devcon.tool.model.Member entityToModel(com.google.appengine.api.datastore.Entity entity) {
+        org.devcon.tool.model.Member model = new org.devcon.tool.model.Member();
+        model.setEmail((com.google.appengine.api.datastore.Email) entity.getProperty("email"));
         model.setKey(entity.getKey());
+        model.setName((java.lang.String) entity.getProperty("name"));
         model.setVersion((java.lang.Long) entity.getProperty("version"));
         return model;
     }
 
     @Override
     public com.google.appengine.api.datastore.Entity modelToEntity(java.lang.Object model) {
-        org.devcon.tool.model.Tweet m = (org.devcon.tool.model.Tweet) model;
+        org.devcon.tool.model.Member m = (org.devcon.tool.model.Member) model;
         com.google.appengine.api.datastore.Entity entity = null;
         if (m.getKey() != null) {
             entity = new com.google.appengine.api.datastore.Entity(m.getKey());
         } else {
             entity = new com.google.appengine.api.datastore.Entity(kind);
         }
-        entity.setProperty("content", m.getContent());
-        entity.setProperty("createdDate", m.getCreatedDate());
+        entity.setProperty("email", m.getEmail());
+        entity.setProperty("name", m.getName());
         entity.setProperty("version", m.getVersion());
         entity.setProperty("slim3.schemaVersion", 1);
         return entity;
@@ -58,20 +58,20 @@ public final class TweetMeta extends org.slim3.datastore.ModelMeta<org.devcon.to
 
     @Override
     protected com.google.appengine.api.datastore.Key getKey(Object model) {
-        org.devcon.tool.model.Tweet m = (org.devcon.tool.model.Tweet) model;
+        org.devcon.tool.model.Member m = (org.devcon.tool.model.Member) model;
         return m.getKey();
     }
 
     @Override
     protected void setKey(Object model, com.google.appengine.api.datastore.Key key) {
         validateKey(key);
-        org.devcon.tool.model.Tweet m = (org.devcon.tool.model.Tweet) model;
+        org.devcon.tool.model.Member m = (org.devcon.tool.model.Member) model;
         m.setKey(key);
     }
 
     @Override
     protected long getVersion(Object model) {
-        org.devcon.tool.model.Tweet m = (org.devcon.tool.model.Tweet) model;
+        org.devcon.tool.model.Member m = (org.devcon.tool.model.Member) model;
         return m.getVersion() != null ? m.getVersion().longValue() : 0L;
     }
 
@@ -81,7 +81,7 @@ public final class TweetMeta extends org.slim3.datastore.ModelMeta<org.devcon.to
 
     @Override
     protected void incrementVersion(Object model) {
-        org.devcon.tool.model.Tweet m = (org.devcon.tool.model.Tweet) model;
+        org.devcon.tool.model.Member m = (org.devcon.tool.model.Member) model;
         long version = m.getVersion() != null ? m.getVersion().longValue() : 0L;
         m.setVersion(Long.valueOf(version + 1L));
     }
@@ -111,20 +111,20 @@ public final class TweetMeta extends org.slim3.datastore.ModelMeta<org.devcon.to
 
     @Override
     protected void modelToJson(org.slim3.datastore.json.JsonWriter writer, java.lang.Object model, int maxDepth, int currentDepth) {
-        org.devcon.tool.model.Tweet m = (org.devcon.tool.model.Tweet) model;
+        org.devcon.tool.model.Member m = (org.devcon.tool.model.Member) model;
         writer.beginObject();
         org.slim3.datastore.json.Default encoder0 = new org.slim3.datastore.json.Default();
-        if(m.getContent() != null){
-            writer.setNextPropertyName("content");
-            encoder0.encode(writer, m.getContent());
-        }
-        if(m.getCreatedDate() != null){
-            writer.setNextPropertyName("createdDate");
-            encoder0.encode(writer, m.getCreatedDate());
+        if(m.getEmail() != null){
+            writer.setNextPropertyName("email");
+            encoder0.encode(writer, m.getEmail());
         }
         if(m.getKey() != null){
             writer.setNextPropertyName("key");
             encoder0.encode(writer, m.getKey());
+        }
+        if(m.getName() != null){
+            writer.setNextPropertyName("name");
+            encoder0.encode(writer, m.getName());
         }
         if(m.getVersion() != null){
             writer.setNextPropertyName("version");
@@ -134,16 +134,16 @@ public final class TweetMeta extends org.slim3.datastore.ModelMeta<org.devcon.to
     }
 
     @Override
-    protected org.devcon.tool.model.Tweet jsonToModel(org.slim3.datastore.json.JsonRootReader rootReader, int maxDepth, int currentDepth) {
-        org.devcon.tool.model.Tweet m = new org.devcon.tool.model.Tweet();
+    protected org.devcon.tool.model.Member jsonToModel(org.slim3.datastore.json.JsonRootReader rootReader, int maxDepth, int currentDepth) {
+        org.devcon.tool.model.Member m = new org.devcon.tool.model.Member();
         org.slim3.datastore.json.JsonReader reader = null;
         org.slim3.datastore.json.Default decoder0 = new org.slim3.datastore.json.Default();
-        reader = rootReader.newObjectReader("content");
-        m.setContent(decoder0.decode(reader, m.getContent()));
-        reader = rootReader.newObjectReader("createdDate");
-        m.setCreatedDate(decoder0.decode(reader, m.getCreatedDate()));
+        reader = rootReader.newObjectReader("email");
+        m.setEmail(decoder0.decode(reader, m.getEmail()));
         reader = rootReader.newObjectReader("key");
         m.setKey(decoder0.decode(reader, m.getKey()));
+        reader = rootReader.newObjectReader("name");
+        m.setName(decoder0.decode(reader, m.getName()));
         reader = rootReader.newObjectReader("version");
         m.setVersion(decoder0.decode(reader, m.getVersion()));
         return m;
