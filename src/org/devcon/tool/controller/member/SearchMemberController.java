@@ -51,12 +51,24 @@ public class SearchMemberController extends Controller {
                 }
             } else if (modify.equals("edit") || modify.equals("add")){
                 return redirect("addMember?key=" + request.getParameter("edit[]"));
+            } else if (modify.equals("download")){
+                try {
+                    
+                
+                download("members.xls", createSpreadsheet(DTOConverter.convert(searchFilter(nameQuery, emailQuery))));
+                } catch (Exception e) {
+                    System.out.println("Exceeeptions");
+                    e.printStackTrace();
+                }
+                System.out.println("Outside");
+                return null;
+//                return forward("searchMember.jsp");
             }
         }
         requestScope("eventList", eventService.getAll());
         List<Member> memberList = searchFilter(nameQuery, emailQuery);
         requestScope("memberList",DTOConverter.convert(memberList) );
-        download("members.xls", createSpreadsheet(DTOConverter.convert(memberList)));
+        
         return forward("searchMember.jsp");
     }
 

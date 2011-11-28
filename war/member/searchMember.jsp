@@ -44,6 +44,7 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<input type="submit" name="modify" value="download"/>
 	<input type="submit" name="modify" value="add"/>
 	<input type="submit" name="modify" value="edit"/>
 	<input type="submit" name="modify" value="delete"/>
