@@ -1,5 +1,8 @@
 package org.devcon.tool.controller.member;
 
+import java.util.ArrayList;
+
+import org.devcon.tool.meta.EventMeta;
 import org.devcon.tool.model.Event;
 import org.devcon.tool.model.EventMember;
 import org.devcon.tool.model.Member;
@@ -18,9 +21,10 @@ public class AddMemberController extends Controller {
     private MemberService memberService = new MemberServiceImpl();
     private EventService eventService = new EventServiceImpl();
     private EventMemberService eventMemberService = new EventMemberServiceImpl();
+    private EventMeta eventMeta = EventMeta.get();
     
     /**
-     * Adds a member object to the view
+     * Adds a member object and its corresponding event to the view
      * @param stringKey
      */
     private void fillForm(String stringKey){
@@ -29,8 +33,10 @@ public class AddMemberController extends Controller {
             if (!stringKey.equals("")){
                 try {
                     member = memberService.get(stringKey);
+                    requestScope("memberEventList", eventMeta.modelsToJson(eventService.getEventList(member)));
                 } catch (Exception e) {
                     member = new Member();
+                    requestScope("memberEventList", new ArrayList<EventMember>());
                 }
             }
         }
@@ -63,7 +69,10 @@ public class AddMemberController extends Controller {
         String submitForm = (String) request.getAttribute("saveOrUpdate");
         String[] stringEventKey = (String[]) request.getParameterValues("event");
         fillForm(stringKey);
+
         requestScope("eventList", eventService.getAll());
+        response.getWriter().write(eventMeta.modelsToJson(eventService.getAll()));
+        
         if (submitForm != null){
             Member member = memberService.save(new RequestMap(request));
             saveEventMember(stringEventKey, member);

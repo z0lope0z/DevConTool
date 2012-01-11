@@ -35,6 +35,18 @@ public class MemberServiceImpl extends GenericServiceImpl<Member, String> implem
         return member;
     }
     
+    public boolean exists(Email email){
+         if (get(email) != null){
+             return true;
+         } else {
+             return false;
+         }
+    }
+    
+    public Member get(Email email){
+        return getListByEmail(email).get(0);    
+    }
+    
     public List<Member> getListByEmail(Email email) {
         MemberMeta memberMeta = MemberMeta.get();
         List<Member> memberList = (List<Member>) Datastore.query(memberMeta).filter(memberMeta.email.greaterThanOrEqual(email)).sort(memberMeta.email.asc).asList();

@@ -3,6 +3,8 @@ package org.devcon.tool.service;
 import java.util.List;
 import java.util.Map;
 
+import com.google.appengine.api.datastore.Key;
+
 public interface GenericService<T, K> {
     List<T> getAll();
 
@@ -29,6 +31,7 @@ public interface GenericService<T, K> {
      */
     T get(K id);
 
+    T get(Key key);
     /**
      * Checks for existence of an object of type T using the id arg.
      * 

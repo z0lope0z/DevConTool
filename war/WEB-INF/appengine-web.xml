@@ -12,6 +12,7 @@
         <property name="slim3.uploadSizeMax" value="1000000"/>
         <property name="slim3.uploadFileSizeMax" value="100000"/>
         -->
+        <property name="user.name" value="DevConTool"/>
 	    <property name="java.util.logging.config.file" value="WEB-INF/classes/logging.properties"/>
 	</system-properties>
 	<sessions-enabled>false</sessions-enabled>

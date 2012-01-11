@@ -11,9 +11,22 @@
 <script src="../js/jquery.js" type="text/javascript"></script>
 <script src="../js/chosen.jquery.js" type="text/javascript"></script>
 <script type="text/javascript"> 
+
 $(document).ready(function() {
-	$(".chzn-select-event").chosen({allow_multiple_deselect:true});
+	var	memberEventList = ${memberEventList};
+	convertToSelected(memberEventList, convertToChosen());
 });
+
+function convertToChosen() {
+	$(".chzn-select-event").chosen({allow_multiple_deselect:true});
+}
+
+function convertToSelected(memberEventList){
+	$.each(memberEventList, function (index, event) {
+		$("select.chzn-select-event option[value="+event.key+"]").attr("selected", "selected");
+	});
+}
+
 </script>
 </head>
 <body>
@@ -27,9 +40,6 @@ $(document).ready(function() {
 		<c:forEach var="e" items="${eventList}">
 			<option value="${f:h(e.key)}">${f:h(e.name)}</option>
 		</c:forEach>
-	</select><br />
-		<select name="event" class="test" style="width:350px;" multiple="multiple" tabindex="3">
-			<option value="1">test</option>
 	</select><br />
 	<input type="submit" name="saveOrUpdate" value="Save"/>	
 	<br /><a href="uploadSpreadsheet">Upload a Spreadsheet</a>

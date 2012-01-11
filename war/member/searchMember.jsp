@@ -2,6 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
+<%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
 <html>
 <head>
@@ -44,6 +45,11 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<display:table name="memberList">
+	  <display:column property="key" title="ID" />
+	</display:table>
+	
 	<input type="submit" name="modify" value="download"/>
 	<input type="submit" name="modify" value="add"/>
 	<input type="submit" name="modify" value="edit"/>

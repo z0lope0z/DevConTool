@@ -8,6 +8,7 @@ import org.slim3.datastore.Datastore;
 import org.slim3.datastore.ModelMeta;
 import org.slim3.util.BeanUtil;
 
+import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Transaction;
 
@@ -45,6 +46,10 @@ public abstract class GenericServiceImpl<T, K> implements GenericService<T, K>{
         return (T) Datastore.get(persistentClass, KeyFactory.stringToKey((java.lang.String) id));
     }
 
+    public T get(Key key){
+        return (T) Datastore.get(persistentClass, key);
+    }
+    
     public List<T> getAll() {
         return (List<T>) Datastore.query(modelMeta).asList();
     }
