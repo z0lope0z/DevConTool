@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="test"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/junit-4.7.jar"/>
-	<classpathentry kind="lib" path="war/WEB-INF/lib/slim3-1.0.14.jar" sourcepath="libsrc/slim3-1.0.14-sources.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/lemano/Desktop/libs/poi-3.8-beta4/poi-3.8-beta4-20110826.jar" sourcepath="/home/lemano/.m2/repository/org/apache/poi/poi/3.8-beta4/poi-3.8-beta4-sources.jar"/>
-	<classpathentry kind="lib" path="/home/lemano/DevConTool/war/WEB-INF/lib/commons-lang3-3.1.jar"/>
-	<classpathentry kind="lib" path="/home/lemano/DevConTool/war/WEB-INF/lib/displaytag-portlet-1.2.jar"/>
-	<classpathentry kind="lib" path="/home/lemano/DevConTool/war/WEB-INF/lib/displaytag-export-poi-1.2.jar"/>
-	<classpathentry kind="lib" path="/home/lemano/DevConTool/war/WEB-INF/lib/displaytag-1.2.jar"/>
-	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+	<classpathentry kind="output" path="${generated.war}/WEB-INF/classes"/>
 </classpath>
