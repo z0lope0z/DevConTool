@@ -3,7 +3,7 @@
 
     <path id="classpath">
         <fileset dir="src/main/webapp/WEB-INF/classes">
-             <include name="**/*.class" />
+            <include name="**/*.class" />
         </fileset>
         <fileset dir="src/main/webapp/WEB-INF/lib">
             <include name="**/*.jar" />
