@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.devcon.tool.model.Member;
 import org.devcon.tool.model.dto.MemberDTO;
 import org.devcon.tool.model.dto.converter.DTO2FILEConverter;
@@ -25,15 +25,15 @@ public class SearchMemberController extends Controller {
     private static final Logger log = Logger.getLogger("Log");
 
     private List<Member> searchFilter(String nameQuery, String emailQuery) {
-//        if (!StringUtils.isEmpty(nameQuery) && (!StringUtils.isEmpty(emailQuery))){
-//            return memberService.getListByNameAndEmail(nameQuery, new Email(emailQuery));
-//        } else if (!StringUtils.isEmpty(nameQuery)) {
-//            return memberService.getListByName(nameQuery);
-//        } else if (!StringUtils.isEmpty(emailQuery)) {
-//            return memberService.getListByEmail(new Email(emailQuery));
-//        } else {
+        if (!StringUtils.isEmpty(nameQuery) && (!StringUtils.isEmpty(emailQuery))){
+            return memberService.getListByNameAndEmail(nameQuery, new Email(emailQuery));
+        } else if (!StringUtils.isEmpty(nameQuery)) {
+            return memberService.getListByName(nameQuery);
+        } else if (!StringUtils.isEmpty(emailQuery)) {
+            return memberService.getListByEmail(new Email(emailQuery));
+        } else {
             return memberService.getAll();
-//        }
+        }
     }
 
     public void deleteMembers(String[] deleteKeys) {

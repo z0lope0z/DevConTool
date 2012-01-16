@@ -33,7 +33,7 @@ public class DTO2FILEConverter {
             HSSFRow row = sheet.createRow(rownum);
             int cellnum = 0;
             for (int column : columns){
-                HSSFCell cell = row.createCell(cellnum);
+                HSSFCell cell = row.createCell((short) cellnum);
                 cell.setCellType(HSSFCell.CELL_TYPE_STRING);
                 switch (column) {
                 case MemberDTO.NAME:
@@ -52,8 +52,6 @@ public class DTO2FILEConverter {
                 default:
                     break;
                 }
-                // 50 characters divided by 1/20th of a point
-                sheet.setColumnWidth(cellnum + 1, (int) (50 * 8 / 0.05));
                 cellnum++;
             }
             rownum++;
