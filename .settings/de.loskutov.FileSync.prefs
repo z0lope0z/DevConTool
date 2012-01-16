@@ -1,0 +1,8 @@
+#Mon Jan 16 18:09:40 PHT 2012
+WARNING=DO NOT MODIFY THIS FILE IF YOU DON'T UNDERSTAND
+defaultDestination=/home/lemano/DevConTool/target/DevConTool-0.1
+defaultVariables=
+eclipse.preferences.version=1
+includeTeamPrivateFiles=false
+map|0=src/main/webapp|/home/lemano/DevConTool/target/DevConTool-0.1|**/*.class;**/*.jsp|,|,
+useCurrentDateForDestinationFiles=false
