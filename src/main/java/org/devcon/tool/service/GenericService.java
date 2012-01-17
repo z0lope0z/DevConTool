@@ -42,13 +42,22 @@ public interface GenericService<T, K> {
     boolean exists(K id);
 
     /**
-     * Generic method to save an object - handles both update and insert.
+     * Generic method to save an object's mapping - handles both update and insert.
      * 
      * @param object
      *            the object to save
      * @return the persisted object
      */
     T save(Map<String, Object> input) throws Exception;
+    
+    /**
+     * Generic method to save an object - handles both update and insert.
+     * 
+     * @param object
+     *            the object to save
+     * @return the persisted object
+     */
+    T save(T object) throws Exception;
 
     /**
      * Generic method to delete an object based on class and id

@@ -10,9 +10,9 @@
 </head>
 <body>
 <form method="post" action="addEvent">
-	<input type="hidden" value="${f:h(member.key)}" name="key"/>
-	Name:
-	<input type="text" name="name" value="${f:h(member.name)}"/><br />
+	<input type="hidden" value="${f:h(event.key)}" name="key"/>
+	Event Name:
+	<input type="text" name="name" value="${f:h(event.name)}"/><br />
 	<input type="submit" name="saveOrUpdate" value="Save"/>	
 </form>
 </body>

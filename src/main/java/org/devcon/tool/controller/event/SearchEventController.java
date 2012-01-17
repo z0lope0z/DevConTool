@@ -36,10 +36,9 @@ public class SearchEventController extends Controller {
                     deleteEvents(deleteKeys);
                 }
             } else if (modify.equals("edit")){
-                return redirect("addEvent?key=" + request.getParameter("edit[]"));
+                return redirect("addEvent");
             }
         }
-        
         requestScope("eventList", searchFilter(nameQuery));
         return forward("searchEvent.jsp");
     }

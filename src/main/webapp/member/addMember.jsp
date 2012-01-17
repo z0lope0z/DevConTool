@@ -11,10 +11,9 @@
 <script src="../js/jquery.js" type="text/javascript"></script>
 <script src="../js/chosen.jquery.js" type="text/javascript"></script>
 <script type="text/javascript"> 
-
 $(document).ready(function() {
 	var	memberEventList = ${memberEventList};
-	convertToSelected(memberEventList, convertToChosen());
+	convertToSelected(memberEventList, convertToChosen);
 });
 
 function convertToChosen() {
@@ -25,6 +24,7 @@ function convertToSelected(memberEventList){
 	$.each(memberEventList, function (index, event) {
 		$("select.chzn-select-event option[value="+event.key+"]").attr("selected", "selected");
 	});
+	convertToChosen();
 }
 
 </script>

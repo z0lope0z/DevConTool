@@ -22,11 +22,19 @@
 	</select> 
 	<input type="submit" value="search"/>
 </form>
-<display:table name="memberList">
-	  <display:column property="key" title="ID" />
-	  <display:column property="name" title="ID" />
-	  <display:column property="email" title="ID" />
-	</display:table>
+<display:table name="memberList" pagesize="5" cellspacing="0"
+	cellpadding="0" requestURI="" defaultsort="1" id="events" class="table"
+	export="true">
+	<display:column title="ID"
+		sortable="true" titleKey="gCashUser.id" style="width: 25%">
+		<c:url var="addEventUrl" value="addEvent"> <c:param name="key" value="${f:h(events.key)}" /> </c:url>
+		<a href="${addEventUrl}">${f:h(events.key)}</a>
+		</display:column>
+	<display:column property="name" value="name" sortable="true" />
+	<display:setProperty name="export.excel.filename"
+		value="Event List.xls" />
+</display:table>
+
 <form method="post" action="searchMember">
 	<table border="0" cellspacing="2" cellpadding="2" id="teams">
 		<tr>
@@ -50,8 +58,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	
-	
 	
 	<input type="submit" name="modify" value="download"/>
 	<input type="submit" name="modify" value="add"/>

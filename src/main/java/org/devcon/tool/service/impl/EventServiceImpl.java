@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.devcon.tool.meta.EventMeta;
 import org.devcon.tool.model.Event;
 import org.devcon.tool.model.EventMember;
@@ -12,6 +13,7 @@ import org.devcon.tool.service.EventMemberService;
 import org.devcon.tool.service.EventService;
 import org.slim3.datastore.Datastore;
 
+import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import com.google.appengine.api.datastore.Transaction;
 
@@ -27,6 +29,13 @@ public class EventServiceImpl extends GenericServiceImpl<Event, String> implemen
     public Event save(Map<String, Object> input) throws Exception{
         Event event = new Event();
         String name = (String) input.get("name");
+        String keyString = (String) input.get("key");
+        Key key = null;
+        System.out.println("=============================================");
+        if (StringUtils.isNotEmpty(keyString)){
+            key = KeyFactory.stringToKey(keyString);
+            event.setKey(key);
+        }
         event.setName(name);
         Transaction tx = Datastore.beginTransaction();
         Datastore.put(event);

@@ -35,6 +35,13 @@ public abstract class GenericServiceImpl<T, K> implements GenericService<T, K>{
         return obj;
     }
     
+    public T save(T object) throws Exception{
+        Transaction tx = Datastore.beginTransaction();
+        Datastore.put(object);
+        tx.commit();
+        return object;
+    }
+    
     public boolean exists(K id) {
         if (get(id) != null){
             return true;
